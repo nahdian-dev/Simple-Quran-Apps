@@ -36,6 +36,10 @@ class MyApp extends StatelessWidget {
         scaffoldBackgroundColor: whiteColor,
         fontFamily: GoogleFonts.varela().fontFamily,
         textTheme: TextTheme(
+          headline5: TextStyle(
+            color: whiteColor,
+            fontWeight: FontWeight.bold,
+          ),
           bodyText1: TextStyle(
             color: primaryColor,
             fontSize: 18,
