@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:simple_quran_apps/views/detail_surah/detail_surah.dart';
+import 'package:simple_quran_apps/views/home/home.dart';
 // import 'package:google_fonts/google_fonts.dart';
 
 import './configuration/typography.dart';
@@ -12,9 +15,21 @@ void main() {
 class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
+    return GetMaterialApp(
       title: 'Simple Quran Apps',
       debugShowCheckedModeBanner: false,
+      getPages: [
+        GetPage(
+          name: '/home',
+          page: () => Home(),
+          transition: Transition.rightToLeft,
+        ),
+        GetPage(
+          name: '/detail-surah',
+          page: () => DetailSurah(),
+          transition: Transition.cupertino,
+        ),
+      ],
       theme: ThemeData(
         primaryColor: primaryColor,
         accentColor: secondaryColor,

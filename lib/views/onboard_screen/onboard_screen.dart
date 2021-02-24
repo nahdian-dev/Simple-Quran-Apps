@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:get/route_manager.dart';
 import 'package:simple_quran_apps/configuration/typography.dart';
-import 'package:simple_quran_apps/views/home/home.dart';
 
 class OnBoardScreen extends StatelessWidget {
   @override
@@ -50,8 +50,7 @@ class OnBoardScreen extends StatelessWidget {
                 ),
                 InkWell(
                   onTap: () {
-                    Navigator.push(context,
-                        MaterialPageRoute(builder: (context) => Home()));
+                    Get.toNamed('/home');
                   },
                   child: Container(
                     width: 200,
