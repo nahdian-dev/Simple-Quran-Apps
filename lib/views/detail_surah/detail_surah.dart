@@ -25,6 +25,10 @@ class DetailSurah extends StatelessWidget {
           SliverList(
             delegate: SliverChildListDelegate([
               ContentDetailSurah(),
+              ContentDetailSurah(),
+              ContentDetailSurah(),
+              ContentDetailSurah(),
+              ContentDetailSurah(),
             ]),
           ),
         ],

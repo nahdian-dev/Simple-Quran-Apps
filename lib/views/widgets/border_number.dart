@@ -13,8 +13,8 @@ class BorderNumber extends StatelessWidget {
     return Stack(
       children: [
         Container(
-          width: 33,
-          height: 33,
+          width: 28,
+          height: 28,
           decoration: BoxDecoration(
             border: Border.all(color: primaryColor, width: 3),
           ),
@@ -22,8 +22,8 @@ class BorderNumber extends StatelessWidget {
         Transform.rotate(
           angle: pi / 1.3,
           child: Container(
-            width: 33,
-            height: 33,
+            width: 28,
+            height: 28,
             decoration: BoxDecoration(
               border: Border.all(color: primaryColor, width: 3),
             ),
@@ -32,7 +32,11 @@ class BorderNumber extends StatelessWidget {
         Positioned.fill(
           child: Align(
             alignment: Alignment.center,
-            child: Text('1'),
+            child: Text('1',
+                style: Theme.of(context)
+                    .textTheme
+                    .apply(fontSizeDelta: -2)
+                    .bodyText2),
           ),
         ),
       ],

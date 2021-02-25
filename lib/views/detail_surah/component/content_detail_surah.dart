@@ -4,7 +4,7 @@ import 'package:simple_quran_apps/configuration/typography.dart';
 class ContentDetailSurah extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return Stack(
+    return Column(
       children: [
         Container(
           width: double.infinity,
@@ -31,7 +31,7 @@ class ContentDetailSurah extends StatelessWidget {
               Row(
                 children: [
                   IconButton(
-                      icon: Icon(Icons.share, color: primaryColor),
+                      icon: Icon(Icons.share_outlined, color: primaryColor),
                       onPressed: () {}),
                   IconButton(
                       icon: Icon(Icons.play_arrow_outlined,
@@ -42,6 +42,19 @@ class ContentDetailSurah extends StatelessWidget {
                       onPressed: () {}),
                 ],
               ),
+            ],
+          ),
+        ),
+        Container(
+          margin: EdgeInsets.symmetric(horizontal: 30, vertical: 18),
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Align(
+                alignment: Alignment.centerRight,
+                child: Text("الْحَمْدُ لِلَّهِ رَبِّ الْعَالَمِينَ"),
+              ),
+              Text("[All] praise is [due] to Allah, Lord of the worlds -"),
             ],
           ),
         ),

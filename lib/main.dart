@@ -52,11 +52,11 @@ class MyApp extends StatelessWidget {
           ),
           subtitle1: TextStyle(
             color: secondaryColor,
-            fontSize: 16,
+            fontSize: 14,
           ),
           subtitle2: TextStyle(
             color: whiteColor,
-            fontSize: 16,
+            fontSize: 14,
           ),
         ),
         appBarTheme: AppBarTheme(

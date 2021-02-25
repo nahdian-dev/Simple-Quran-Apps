@@ -42,41 +42,34 @@ class HeaderDetailSurah extends StatelessWidget {
 
             //Content
             Container(
+              height: MediaQuery.of(context).size.height / 6,
               margin: EdgeInsets.only(top: 20),
               child: ListView(
                 children: [
-                  Positioned.fill(
-                    child: Align(
-                      alignment: Alignment.center,
-                      child: Text("Al-Fatiah",
-                          style: Theme.of(context).textTheme.headline5),
-                    ),
+                  Align(
+                    alignment: Alignment.center,
+                    child: Text("Al-Fatiah",
+                        style: Theme.of(context).textTheme.headline5),
                   ),
-                  Positioned.fill(
-                    child: Align(
-                      alignment: Alignment.center,
-                      child: Text("The Opening",
-                          style: Theme.of(context).textTheme.subtitle2),
-                    ),
+                  Align(
+                    alignment: Alignment.center,
+                    child: Text("The Opening",
+                        style: Theme.of(context).textTheme.subtitle2),
                   ),
-                  Positioned.fill(
-                    child: Align(
-                      alignment: Alignment.center,
-                      child: SizedBox(
-                        width: 200,
-                        child: Divider(
-                          color: whiteColor,
-                          thickness: 0.8,
-                        ),
+                  Align(
+                    alignment: Alignment.center,
+                    child: SizedBox(
+                      width: 200,
+                      child: Divider(
+                        color: whiteColor,
+                        thickness: 0.8,
                       ),
                     ),
                   ),
-                  Positioned.fill(
-                    child: Align(
-                      alignment: Alignment.center,
-                      child: Text("Meccan . 7 Verses",
-                          style: Theme.of(context).textTheme.subtitle2),
-                    ),
+                  Align(
+                    alignment: Alignment.center,
+                    child: Text("Meccan . 7 Verses",
+                        style: Theme.of(context).textTheme.subtitle2),
                   ),
                 ],
               ),
