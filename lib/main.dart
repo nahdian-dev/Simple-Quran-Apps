@@ -3,7 +3,6 @@ import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:simple_quran_apps/views/detail_surah/detail_surah.dart';
 import 'package:simple_quran_apps/views/home/home.dart';
-// import 'package:google_fonts/google_fonts.dart';
 
 import './configuration/typography.dart';
 import 'views/onboard_screen/onboard_screen.dart';
@@ -73,3 +72,10 @@ class MyApp extends StatelessWidget {
     );
   }
 }
+
+// class SplashScreenCustom extends StatelessWidget {
+//   @override
+//   Widget build(BuildContext context) {
+//     return ;
+//   }
+// }

@@ -33,7 +33,7 @@ class HomeHeader extends StatelessWidget {
             gradient: LinearGradient(
               begin: Alignment.topLeft,
               end: Alignment.bottomRight,
-              colors: [Colors.purpleAccent, primaryColor],
+              colors: [Colors.purpleAccent, primaryColor.withOpacity(0.9)],
             ),
           ),
           child: ClipRRect(
