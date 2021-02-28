@@ -16,16 +16,15 @@ class SurahView extends StatelessWidget {
     return Obx(() {
       return FutureBuilder<ListSurah>(
         future: controller.listSurah.value,
-        builder: (builder, AsyncSnapshot<ListSurah> snap) {
+        builder: (builder, snap) {
           if (snap.hasData) {
             return ListView.separated(
               itemCount: snap.data.data.length,
-              itemBuilder: (context, index) {
-                var dataIndex = snap.data.data[index];
+              itemBuilder: (context, i) {
+                var dataIndex = snap.data.data[i];
                 return ListTile(
                   onTap: () {
-                    Get.toNamed('/detail-surah',
-                        arguments: dataIndex);
+                    Get.toNamed('/detail-surah', arguments: dataIndex);
                   },
                   leading: BorderNumber(number: dataIndex.number),
                   title: Text(dataIndex.name.transliteration.id,
@@ -37,8 +36,8 @@ class SurahView extends StatelessWidget {
                       style: Theme.of(context).textTheme.bodyText1),
                 );
               },
-              separatorBuilder: (BuildContext context, int index) {
-                return Divider();
+              separatorBuilder: (context, index) {
+                return Divider(thickness: 0.6);
               },
             );
           } else {

@@ -2,11 +2,14 @@ import 'package:flutter/material.dart';
 import 'package:simple_quran_apps/configuration/typography.dart';
 
 class ContentDetailSurah extends StatelessWidget {
-  final arguments;
-  ContentDetailSurah({this.arguments});
+  final data;
+  final int index;
+  ContentDetailSurah({this.data, this.index});
 
   @override
   Widget build(BuildContext context) {
+    var verses = data.verses[index];
+
     return Column(
       children: [
         Container(
@@ -19,6 +22,7 @@ class ContentDetailSurah extends StatelessWidget {
           child: Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
+              //Number
               Container(
                 margin: EdgeInsets.fromLTRB(10, 4, 0, 4),
                 padding: EdgeInsets.all(12),
@@ -27,10 +31,12 @@ class ContentDetailSurah extends StatelessWidget {
                   shape: BoxShape.circle,
                 ),
                 child: Center(
-                  child: Text(arguments.number.toString(),
+                  child: Text(verses.number.inSurah.toString(),
                       style: Theme.of(context).textTheme.subtitle2),
                 ),
               ),
+
+              //Icon
               Row(
                 children: [
                   IconButton(
@@ -55,9 +61,9 @@ class ContentDetailSurah extends StatelessWidget {
             children: [
               Align(
                 alignment: Alignment.centerRight,
-                child: Text("الْحَمْدُ لِلَّهِ رَبِّ الْعَالَمِينَ"),
+                child: Text(verses.text.arab),
               ),
-              Text("[All] praise is [due] to Allah, Lord of the worlds -"),
+              Text(verses.translation.id),
             ],
           ),
         ),

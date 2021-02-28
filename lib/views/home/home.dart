@@ -4,20 +4,7 @@ import 'package:simple_quran_apps/views/home/tabbar_view/surah_view/surah_view.d
 
 import 'component/home_header.dart';
 
-class Home extends StatefulWidget {
-  @override
-  _HomeState createState() => _HomeState();
-}
-
-class _HomeState extends State<Home> with SingleTickerProviderStateMixin {
-  TabController controller;
-
-  @override
-  void initState() {
-    super.initState();
-    controller = TabController(length: 4, vsync: this);
-  }
-
+class Home extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -37,50 +24,52 @@ class _HomeState extends State<Home> with SingleTickerProviderStateMixin {
           )
         ],
       ),
-      body: new CustomScrollView(
-        slivers: <Widget>[
-          new SliverAppBar(
-            automaticallyImplyLeading: false,
-            expandedHeight: MediaQuery.of(context).size.height / 3.2,
-            flexibleSpace: FlexibleSpaceBar(
-              background: HomeHeader(),
-            ),
-          ),
-          new SliverAppBar(
-            automaticallyImplyLeading: false,
-            pinned: true,
-            toolbarHeight: 0,
-            bottom: new TabBar(
-              controller: controller,
-              labelColor: primaryColor,
-              unselectedLabelColor: secondaryColor,
-              indicator: UnderlineTabIndicator(
-                borderSide: BorderSide(color: primaryColor, width: 5),
+      body: DefaultTabController(
+        length: 4,
+        child: NestedScrollView(
+          headerSliverBuilder: (context, value) {
+            return [
+              new SliverAppBar(
+                automaticallyImplyLeading: false,
+                expandedHeight: MediaQuery.of(context).size.height / 3.2,
+                flexibleSpace: FlexibleSpaceBar(
+                  background: HomeHeader(),
+                ),
               ),
-              labelStyle: Theme.of(context)
-                  .textTheme
-                  .apply(fontSizeDelta: -4)
-                  .bodyText1,
-              tabs: [
-                new Tab(text: 'Surah'),
-                new Tab(text: 'Para'),
-                new Tab(text: 'Page'),
-                new Tab(text: 'Hijb'),
-              ],
-            ),
+              new SliverAppBar(
+                automaticallyImplyLeading: false,
+                pinned: true,
+                toolbarHeight: 0,
+                bottom: new TabBar(
+                  // controller: controller,
+                  labelColor: primaryColor,
+                  unselectedLabelColor: secondaryColor,
+                  indicator: UnderlineTabIndicator(
+                    borderSide: BorderSide(color: primaryColor, width: 5),
+                  ),
+                  labelStyle: Theme.of(context)
+                      .textTheme
+                      .apply(fontSizeDelta: -4)
+                      .bodyText1,
+                  tabs: [
+                    new Tab(text: 'Surah'),
+                    new Tab(text: 'Para'),
+                    new Tab(text: 'Page'),
+                    new Tab(text: 'Hijb'),
+                  ],
+                ),
+              ),
+            ];
+          },
+          body: TabBarView(
+            children: [
+              SurahView(),
+              Center(child: Text("Tab 1")),
+              Center(child: Text("Tab 1")),
+              Center(child: Text("Tab 1")),
+            ],
           ),
-          new SliverFillRemaining(
-            child: TabBarView(
-              controller: controller,
-              children: <Widget>[
-                SurahView(),
-                Center(child: Text("Tab 1")),
-                Center(child: Text("Tab 1")),
-                Center(child: Text("Tab 1")),
-              ],
-            ),
-          ),
-        ],
+        ),
       ),
     );
   }
