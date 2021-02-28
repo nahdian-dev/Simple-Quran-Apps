@@ -72,10 +72,3 @@ class MyApp extends StatelessWidget {
     );
   }
 }
-
-// class SplashScreenCustom extends StatelessWidget {
-//   @override
-//   Widget build(BuildContext context) {
-//     return ;
-//   }
-// }

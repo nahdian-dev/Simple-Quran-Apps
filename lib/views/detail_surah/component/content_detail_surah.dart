@@ -2,6 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:simple_quran_apps/configuration/typography.dart';
 
 class ContentDetailSurah extends StatelessWidget {
+  final arguments;
+  ContentDetailSurah({this.arguments});
+
   @override
   Widget build(BuildContext context) {
     return Column(
@@ -24,8 +27,8 @@ class ContentDetailSurah extends StatelessWidget {
                   shape: BoxShape.circle,
                 ),
                 child: Center(
-                  child:
-                      Text("1", style: Theme.of(context).textTheme.subtitle2),
+                  child: Text(arguments.number.toString(),
+                      style: Theme.of(context).textTheme.subtitle2),
                 ),
               ),
               Row(

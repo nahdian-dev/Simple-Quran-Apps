@@ -4,9 +4,8 @@ import 'package:flutter/material.dart';
 import 'package:simple_quran_apps/configuration/typography.dart';
 
 class BorderNumber extends StatelessWidget {
-  const BorderNumber({
-    Key key,
-  }) : super(key: key);
+  final int number;
+  BorderNumber({this.number});
 
   @override
   Widget build(BuildContext context) {
@@ -32,10 +31,10 @@ class BorderNumber extends StatelessWidget {
         Positioned.fill(
           child: Align(
             alignment: Alignment.center,
-            child: Text('1',
+            child: Text(number.toString(),
                 style: Theme.of(context)
                     .textTheme
-                    .apply(fontSizeDelta: -2)
+                    .apply(fontSizeDelta: -4)
                     .bodyText2),
           ),
         ),

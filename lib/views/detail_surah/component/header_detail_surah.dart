@@ -2,6 +2,13 @@ import 'package:flutter/material.dart';
 import 'package:simple_quran_apps/configuration/typography.dart';
 
 class HeaderDetailSurah extends StatelessWidget {
+  const HeaderDetailSurah({
+    Key key,
+    @required this.arguments,
+  }) : super(key: key);
+
+  final arguments;
+
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -48,12 +55,12 @@ class HeaderDetailSurah extends StatelessWidget {
                 children: [
                   Align(
                     alignment: Alignment.center,
-                    child: Text("Al-Fatiah",
+                    child: Text(arguments.name.transliteration.id,
                         style: Theme.of(context).textTheme.headline5),
                   ),
                   Align(
                     alignment: Alignment.center,
-                    child: Text("The Opening",
+                    child: Text(arguments.name.translation.id,
                         style: Theme.of(context).textTheme.subtitle2),
                   ),
                   Align(
@@ -68,7 +75,8 @@ class HeaderDetailSurah extends StatelessWidget {
                   ),
                   Align(
                     alignment: Alignment.center,
-                    child: Text("Meccan . 7 Verses",
+                    child: Text(
+                        '${arguments.revelation.id.toString().replaceAll('Id.', '')} - ${arguments.numberOfVerses} ayat',
                         style: Theme.of(context).textTheme.subtitle2),
                   ),
                 ],

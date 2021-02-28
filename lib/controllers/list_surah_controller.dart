@@ -1,16 +1,17 @@
 import 'package:get/get.dart';
-
-import '../models/list_surah_model.dart';
-import '../services/list_surah_services.dart';
+import 'package:simple_quran_apps/models/list_surah_model.dart';
+import 'package:simple_quran_apps/services/list_surah_services.dart';
 
 class ListSurahController extends GetxController {
-  ListSurah listSurah = ListSurah();
+  var listSurah = Future.value(ListSurah()).obs;
 
-  void fetchSurah() async {
-    var services = await ListSurahServices.fetchSurah();
+  @override
+  void onInit() {
+    super.onInit();
+    getListSurah();
+  }
 
-    if (services != null) {
-      listSurah = services;
-    }
+  void getListSurah() async {
+    listSurah.value = ListSurahServices.fetchSurah();
   }
 }
