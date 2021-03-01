@@ -1,17 +1,15 @@
 import 'package:get/get.dart';
 import 'package:simple_quran_apps/models/specific_surah_model.dart';
 import 'package:simple_quran_apps/services/specific_surah_services.dart';
+// import 'package:simple_quran_apps/views/detail_surah/detail_surah.dart';
 
 class SpecificSurahController extends GetxController {
-  var specificSurah = Future.value(SpecificSurah()).obs;
+  static var _specificSurah = Future.value(SpecificSurah()).obs;
+  Future<SpecificSurah> get specifSurah => _specificSurah.value;
 
-  @override
-  void onInit() {
-    super.onInit();
-    fetchSurah();
-  }
-
-  void fetchSurah() async {
-    specificSurah.value = SpecificSurahServices.fetchSurah("12");
+  static Future<SpecificSurah> fetchSurah(String page) async {
+    var services = SpecificSurahServices.fetchSurah(page);
+    _specificSurah.value = services;
+    return _specificSurah.value;
   }
 }

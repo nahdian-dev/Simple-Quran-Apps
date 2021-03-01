@@ -7,15 +7,32 @@ import 'package:simple_quran_apps/models/specific_surah_model.dart';
 import 'component/content_detail_surah.dart';
 import 'component/header_detail_surah.dart';
 
-class DetailSurah extends StatelessWidget {
-  final SpecificSurahController controller = Get.put(SpecificSurahController());
+class DetailSurah extends StatefulWidget {
+  @override
+  _DetailSurahState createState() => _DetailSurahState();
+}
+
+class _DetailSurahState extends State<DetailSurah> {
+  final controller = Get.put(SpecificSurahController());
   final arguments = Get.arguments;
+
+  Future<SpecificSurah> specificSurah;
+
+  @override
+  void initState() {
+    super.initState();
+    specificSurah =
+        SpecificSurahController.fetchSurah(arguments.number.toString());
+  }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        // title: Text("Al-Fatiah", style: Theme.of(context).textTheme.bodyText1),
+        title: RichText(
+            text: TextSpan(
+                text: arguments.name.transliteration.id,
+                style: Theme.of(context).textTheme.bodyText1)),
         actions: [
           IconButton(icon: Icon(Icons.search), onPressed: () {}),
         ],
@@ -31,8 +48,8 @@ class DetailSurah extends StatelessWidget {
           ),
           SliverList(
             delegate: SliverChildListDelegate([
-              FutureBuilder<SpecificSurah>(
-                  future: controller.specificSurah.value,
+              Obx(() => FutureBuilder<SpecificSurah>(
+                  future: controller.specifSurah,
                   builder: (context, snap) {
                     if (snap.hasData) {
                       return Column(
@@ -47,7 +64,7 @@ class DetailSurah extends StatelessWidget {
                     } else {
                       return Center(child: CircularProgressIndicator());
                     }
-                  }),
+                  }))
             ]),
           ),
         ],
