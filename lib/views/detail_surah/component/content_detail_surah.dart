@@ -57,12 +57,17 @@ class ContentDetailSurah extends StatelessWidget {
         Container(
           margin: EdgeInsets.symmetric(horizontal: 30, vertical: 18),
           child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
+            crossAxisAlignment: CrossAxisAlignment.end,
             children: [
               Align(
                 alignment: Alignment.centerRight,
-                child: Text(verses.text.arab),
+                child: Text(verses.text.arab,
+                    style: Theme.of(context)
+                        .textTheme
+                        .apply(fontSizeDelta: 6)
+                        .bodyText2),
               ),
+              SizedBox(height: 16),
               Text(verses.translation.id),
             ],
           ),

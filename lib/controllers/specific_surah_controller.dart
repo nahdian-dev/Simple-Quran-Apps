@@ -7,9 +7,8 @@ class SpecificSurahController extends GetxController {
   static var _specificSurah = Future.value(SpecificSurah()).obs;
   Future<SpecificSurah> get specifSurah => _specificSurah.value;
 
-  static Future<SpecificSurah> fetchSurah(String page) async {
+  setPage(String page) {
     var services = SpecificSurahServices.fetchSurah(page);
     _specificSurah.value = services;
-    return _specificSurah.value;
   }
 }

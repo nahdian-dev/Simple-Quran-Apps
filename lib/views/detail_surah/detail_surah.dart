@@ -15,14 +15,11 @@ class DetailSurah extends StatefulWidget {
 class _DetailSurahState extends State<DetailSurah> {
   final controller = Get.put(SpecificSurahController());
   final arguments = Get.arguments;
-
-  Future<SpecificSurah> specificSurah;
-
+  
   @override
-  void initState() {
+  void initState() { 
     super.initState();
-    specificSurah =
-        SpecificSurahController.fetchSurah(arguments.number.toString());
+    controller.setPage(arguments.number.toString());
   }
 
   @override
