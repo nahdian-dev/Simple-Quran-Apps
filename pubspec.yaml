@@ -21,13 +21,6 @@ dev_dependencies:
   flutter_test:
     sdk: flutter
 
-  flutter_native_splash: ^0.3.0
-
-flutter_native_splash:
-  color: "#42a5f5"
-  andoird: true
-  image: assets/images/quran_icon.png
-
 flutter:
 
   uses-material-design: true

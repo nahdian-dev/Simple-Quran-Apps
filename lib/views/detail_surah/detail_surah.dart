@@ -15,9 +15,9 @@ class DetailSurah extends StatefulWidget {
 class _DetailSurahState extends State<DetailSurah> {
   final controller = Get.put(SpecificSurahController());
   final arguments = Get.arguments;
-  
+
   @override
-  void initState() { 
+  void initState() {
     super.initState();
     controller.setPage(arguments.number.toString());
   }
@@ -34,38 +34,33 @@ class _DetailSurahState extends State<DetailSurah> {
           IconButton(icon: Icon(Icons.search), onPressed: () {}),
         ],
       ),
-      body: CustomScrollView(
-        slivers: [
-          SliverAppBar(
-            automaticallyImplyLeading: false,
-            expandedHeight: MediaQuery.of(context).size.height / 2.4,
-            flexibleSpace: FlexibleSpaceBar(
-              background: HeaderDetailSurah(arguments: arguments),
-            ),
-          ),
-          SliverList(
-            delegate: SliverChildListDelegate([
-              Obx(() => FutureBuilder<SpecificSurah>(
-                  future: controller.specifSurah,
-                  builder: (context, snap) {
-                    if (snap.hasData) {
-                      return Column(
-                        children: [
-                          for (int i = 0; i < snap.data.data.verses.length; i++)
-                            ContentDetailSurah(
-                              data: snap.data.data,
-                              index: i,
-                            )
-                        ],
-                      );
-                    } else {
-                      return Center(child: CircularProgressIndicator());
-                    }
-                  }))
-            ]),
-          ),
-        ],
-      ),
+      body: NestedScrollView(
+          headerSliverBuilder: (context, value) {
+            return [
+              SliverAppBar(
+                automaticallyImplyLeading: false,
+                expandedHeight: MediaQuery.of(context).size.height / 2.4,
+                flexibleSpace: FlexibleSpaceBar(
+                  background: HeaderDetailSurah(arguments: arguments),
+                ),
+              ),
+            ];
+          },
+          body: Obx(() => FutureBuilder<SpecificSurah>(
+              future: controller.specifSurah,
+              builder: (context, snap) {
+                if (snap.hasData) {
+                  return ListView.builder(
+                    itemCount: snap.data.data.verses.length,
+                    itemBuilder: (builder, index) {
+                      return ContentDetailSurah(
+                          data: snap.data.data, index: index);
+                    },
+                  );
+                } else {
+                  return Center(child: CircularProgressIndicator());
+                }
+              }))),
     );
   }
 }
