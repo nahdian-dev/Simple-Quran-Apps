@@ -55,7 +55,7 @@ class Home extends StatelessWidget {
                     new Tab(text: 'Surah'),
                     new Tab(text: 'Para'),
                     new Tab(text: 'Page'),
-                    new Tab(text: 'Hijb'),
+                    new Tab(text: 'Bookmark'),
                   ],
                 ),
               ),
