@@ -18,8 +18,3 @@ samples, guidance on mobile development, and a full API reference.
 Screenshot :
 
 [![Watch the video](https://img.youtube.com/vi/hNGXnylgRco/maxresdefault.jpg)](https://www.youtube.com/watch?v=hNGXnylgRco)
-
-<p align="center">
-  <img src="https://github.com/nahdian-dev/Simple-Quran-Apps/blob/master/assets/images/screenshot/home_ss.png" width="350" title="hover text">
-  <img src="https://github.com/nahdian-dev/Simple-Quran-Apps/blob/master/assets/images/screenshot/detail_surah_ss.png" width="350" alt="accessibility text">
-</p>
